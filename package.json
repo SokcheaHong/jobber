@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"scripts": {
 		"prepare": "husky",
-		"start": "nx run-many -t serve -p jobber-auth jobber-jobs jobber-executor",
+		"start": "nx run-many -t serve -p auth jobs executor",
 		"generate-ts-proto": "npx protoc --ts_proto_out=./types --ts_proto_opt=nestJs=true ./proto/*.proto"
 	},
 	"nx": {
