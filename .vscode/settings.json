@@ -1,4 +1,5 @@
 {
 	"editor.formatOnSave": true,
-	"nxConsole.generateAiAgentRules": true
+	"nxConsole.generateAiAgentRules": true,
+	"editor.stablePeek": true
 }

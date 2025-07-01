@@ -23,6 +23,7 @@
 			"defaultConfiguration": "development",
 			"dependsOn": ["build"],
 			"options": {
+				"watch": true,
 				"buildTarget": "jobber-jobs:build",
 				"runBuildTargetDependencies": false
 			},

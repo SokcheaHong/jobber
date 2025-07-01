@@ -16,10 +16,10 @@ export class UsersResolver {
 		return this.usersService.createUser(createUserInput);
 	}
 
-	@UseGuards(GqlAuthGuard)
 	@Query(() => [User], { name: 'users' })
+	@UseGuards(GqlAuthGuard)
 	async getUsers(@CurrentUser() { userId }: TokenPayload) {
-		console.log(userId);
+		console.log('user id: ' + userId);
 		return this.usersService.getUsers();
 	}
 }

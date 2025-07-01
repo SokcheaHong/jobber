@@ -1,6 +1,7 @@
 {
 	"$schema": "./node_modules/nx/schemas/nx-schema.json",
 	"defaultBase": "main",
+	"useDaemonProcess": true,
 	"namedInputs": {
 		"default": ["{projectRoot}/**/*", "sharedGlobals"],
 		"production": [
@@ -16,6 +17,10 @@
 		"sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
 	},
 	"nxCloudId": "684fb96f5ce98d6c2150392f",
+	"workspaceLayout": {
+		"appsDir": "apps",
+		"libsDir": "libs"
+	},
 	"plugins": [
 		{
 			"plugin": "@nx/webpack/plugin",
@@ -38,7 +43,29 @@
 			"options": {
 				"targetName": "test"
 			},
-			"exclude": ["apps/jobber-auth-e2e/**/*", "apps/jobber-jobs-e2e/**/*"]
+			"exclude": [
+				"apps/jobber-auth-e2e/**/*",
+				"apps/jobber-jobs-e2e/**/*",
+				"app/jobber-executor-e2e/**/*"
+			]
 		}
-	]
+	],
+	"targetDefaults": {
+		"build": {
+			"inputs": [
+				"{projectRoot}/**/*",
+				"{workspaceRoot}/lib/**/*",
+				"{workspaceRoot}/proto/*"
+			],
+			"options": {
+				"assets": [
+					{
+						"glob": "*.proto",
+						"input": "proto",
+						"output": "proto"
+					}
+				]
+			}
+		}
+	}
 }
