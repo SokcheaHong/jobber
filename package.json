@@ -4,20 +4,13 @@
 	"license": "MIT",
 	"scripts": {
 		"prepare": "husky",
-		"start": "nx run-many -t serve -p auth jobs executor",
-		"generate-ts-proto": "npx protoc --ts_proto_out=./types --ts_proto_opt=nestJs=true ./proto/*.proto"
-	},
-	"nx": {
-		"targets": {
-			"generate-ts-proto": {
-				"inputs": [
-					"{workspaceRoot}/proto/*.proto"
-				],
-				"cache": true
-			}
-		}
+		"start": "nx run-many -t serve -p auth jobs executor"
 	},
 	"private": true,
+	"workspaces": [
+		"apps/*",
+		"lib/*"
+	],
 	"dependencies": {
 		"@apollo/server": "^4.12.2",
 		"@golevelup/nestjs-discovery": "^5.0.0",
@@ -45,7 +38,8 @@
 		"pulsar-client": "^1.13.2",
 		"reflect-metadata": "^0.1.13",
 		"rxjs": "^7.8.0",
-		"ts-proto": "^2.7.5"
+		"ts-proto": "^2.7.5",
+		"tslib": "^2.3.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.8.0",
@@ -80,7 +74,6 @@
 		"prisma": "^6.10.1",
 		"ts-jest": "^29.1.0",
 		"ts-node": "10.9.1",
-		"tslib": "^2.3.0",
 		"typescript": "~5.8.2",
 		"typescript-eslint": "^8.29.0",
 		"webpack-cli": "^5.1.4"
