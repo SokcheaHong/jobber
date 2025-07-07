@@ -3,7 +3,8 @@ const { join } = require('path');
 
 module.exports = {
 	output: {
-		path: join(__dirname, '../../dist/libs/nesjs'),
+		path: join(__dirname, '../../dist/libs/nestjs'),
+		libraryTarget: 'commonjs2',
 	},
 	plugins: [
 		new NxAppWebpackPlugin({
